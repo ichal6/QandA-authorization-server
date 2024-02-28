@@ -1,0 +1,9 @@
+server:
+  port: 8081
+
+logging:
+  level:
+    root: INFO
+    pl.lechowicz.qandaauthorizationserver: DEBUG
+    org.springframework.jdbc: DEBUG
+    org.springframework.security: TRACE
