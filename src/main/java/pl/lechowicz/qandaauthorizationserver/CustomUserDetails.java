@@ -17,6 +17,16 @@ public class CustomUserDetails implements UserDetails {
         this.authorities = authorities;
     }
 
+    public CustomUserDetails(User user) {
+        this.username = user.getUsername();
+        this.password = user.getPassword();
+        this.authorities = user.getRoles().stream()
+                .flatMap(role -> role.getAuthorities().stream()
+                        .map(authority -> new SimpleGrantedAuthority(authority.getName()))
+                )
+                .collect(Collectors.toList());
+    }
+
     public CustomUserDetails(String username, String password, Collection<String> authorities) {
         this.username = username;
         this.password = password;
