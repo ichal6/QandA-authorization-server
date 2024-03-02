@@ -35,17 +35,7 @@ public class GoogleOidcUserMapper implements OidcUserMapper {
                 )
                 .collect(Collectors.toSet());
 
-        Map<String,Object> claims = new HashMap<>();
-        claims.putAll(idToken.getClaims());
-        claims.put(StandardClaimNames.GIVEN_NAME, user.getFirstName());
-        claims.put(StandardClaimNames.MIDDLE_NAME, user.getMiddleName());
-        claims.put(StandardClaimNames.FAMILY_NAME, user.getLastName());
-        claims.put(StandardClaimNames.LOCALE, user.getLocale());
-        claims.put(StandardClaimNames.PICTURE, user.getAvatarUrl());
-
-        OidcIdToken customIdToken = new OidcIdToken(
-                idToken.getTokenValue(), idToken.getIssuedAt(), idToken.getExpiresAt(), claims
-        );
+        OidcIdToken customIdToken = getCustomIdToken(idToken, user);
 
         CustomOidcUser oidcUser = new CustomOidcUser(authorities, customIdToken, userInfo);
         oidcUser.setId(user.getId());
@@ -53,5 +43,18 @@ public class GoogleOidcUserMapper implements OidcUserMapper {
         oidcUser.setCreatedAt(user.getCreatedAt());
         oidcUser.setActive(user.isActive());
         return oidcUser;
+    }
+
+    private OidcIdToken getCustomIdToken(OidcIdToken idToken, User user) {
+        Map<String, Object> claims = new HashMap<>(idToken.getClaims());
+        claims.put(StandardClaimNames.GIVEN_NAME, user.getFirstName());
+        claims.put(StandardClaimNames.MIDDLE_NAME, user.getMiddleName());
+        claims.put(StandardClaimNames.FAMILY_NAME, user.getLastName());
+        claims.put(StandardClaimNames.LOCALE, user.getLocale());
+        claims.put(StandardClaimNames.PICTURE, user.getAvatarUrl());
+
+        return new OidcIdToken(
+                idToken.getTokenValue(), idToken.getIssuedAt(), idToken.getExpiresAt(), claims
+        );
     }
 }

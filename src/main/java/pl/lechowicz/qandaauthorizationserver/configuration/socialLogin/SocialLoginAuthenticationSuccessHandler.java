@@ -3,6 +3,7 @@ package pl.lechowicz.qandaauthorizationserver.configuration.socialLogin;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.Setter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
@@ -18,6 +19,7 @@ public class SocialLoginAuthenticationSuccessHandler implements AuthenticationSu
 
     private Consumer<OAuth2User> oauth2UserHandler = (user) -> {};
 
+    @Setter
     private Consumer<OidcUser> oidcUserHandler = (user) -> this.oauth2UserHandler.accept(user);
 
     @Override
@@ -25,21 +27,14 @@ public class SocialLoginAuthenticationSuccessHandler implements AuthenticationSu
             HttpServletRequest request, HttpServletResponse response, Authentication authentication
     ) throws IOException, ServletException {
         if (authentication instanceof OAuth2AuthenticationToken) {
-            if (authentication.getPrincipal() instanceof OidcUser) {
-                this.oidcUserHandler.accept((OidcUser) authentication.getPrincipal());
-            } else if (authentication.getPrincipal() instanceof OAuth2User) {
-                this.oauth2UserHandler.accept((OAuth2User) authentication.getPrincipal());
+            Object principal = authentication.getPrincipal();
+            if (principal instanceof OidcUser) {
+                this.oidcUserHandler.accept((OidcUser) principal);
+            } else if (principal != null) {
+                this.oauth2UserHandler.accept((OAuth2User) principal);
             }
         }
 
         this.delegate.onAuthenticationSuccess(request, response, authentication);
-    }
-
-    public void setOAuth2UserHandler(Consumer<OAuth2User> oauth2UserHandler) {
-        this.oauth2UserHandler = oauth2UserHandler;
-    }
-
-    public void setOidcUserHandler(Consumer<OidcUser> oidcUserHandler) {
-        this.oidcUserHandler = oidcUserHandler;
     }
 }

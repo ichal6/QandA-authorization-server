@@ -71,7 +71,7 @@ public class OAuth2GrantPasswordAuthenticationConverter implements Authenticatio
                                 && !OAuth2ParameterNames.PASSWORD.equals(entry.getKey())
                                 && !OAuth2ParameterNames.USERNAME.equals(entry.getKey())
                 )
-                .collect(Collectors.toMap(entry -> entry.getKey(), entry -> entry.getValue().get(0)));
+                .collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue().getFirst()));
 
         Authentication clientPrincipal = SecurityContextHolder.getContext().getAuthentication();
 
@@ -84,10 +84,8 @@ public class OAuth2GrantPasswordAuthenticationConverter implements Authenticatio
         Map<String, String[]> parameterMap = request.getParameterMap();
         MultiValueMap<String, String> parameters = new LinkedMultiValueMap<>(parameterMap.size());
         parameterMap.forEach((key, values) -> {
-            if (values.length > 0) {
-                for (String value : values) {
-                    parameters.add(key, value);
-                }
+            for (String value : values) {
+                parameters.add(key, value);
             }
         });
         return parameters;

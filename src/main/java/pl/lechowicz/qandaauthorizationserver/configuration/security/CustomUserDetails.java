@@ -28,14 +28,6 @@ public class CustomUserDetails implements UserDetails {
                 .collect(Collectors.toList());
     }
 
-    public CustomUserDetails(String username, String password, Collection<String> authorities) {
-        this.username = username;
-        this.password = password;
-        this.authorities = authorities.stream()
-                .map(authority -> new SimpleGrantedAuthority(authority))
-                .collect(Collectors.toList());
-    }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;

@@ -37,7 +37,7 @@ public class TokenConfiguration {
     @Bean
     public OAuth2TokenCustomizer<OAuth2TokenClaimsContext> accessTokenCustomizer () {
         return context -> {
-            UserDetails userDetails = null;
+            UserDetails userDetails;
 
             if (context.getPrincipal() instanceof OAuth2ClientAuthenticationToken) {
                 userDetails = (UserDetails)context.getPrincipal().getDetails();

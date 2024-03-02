@@ -25,21 +25,13 @@ public class CustomOidcUser extends DefaultOidcUser implements UserDetails {
     private LocalDateTime createdAt;
     private Collection<? extends GrantedAuthority> authorities = new HashSet<>();
 
-    public CustomOidcUser(Collection<? extends GrantedAuthority> authorities, OidcIdToken idToken) {
-        super(authorities, idToken, null, IdTokenClaimNames.SUB);
-    }
-
-    public CustomOidcUser(Collection<? extends GrantedAuthority> authorities, OidcIdToken idToken, String nameAttributeKey) {
-        super(authorities, idToken, null, nameAttributeKey);
-    }
-
     public CustomOidcUser(Collection<? extends GrantedAuthority> authorities, OidcIdToken idToken, OidcUserInfo userInfo) {
         this(authorities, idToken, userInfo, IdTokenClaimNames.SUB);
     }
 
     public CustomOidcUser(Collection<? extends GrantedAuthority> authorities, OidcIdToken idToken, OidcUserInfo userInfo, String nameAttributeKey) {
         super(AuthorityUtils.NO_AUTHORITIES, idToken, userInfo, nameAttributeKey);
-        /**
+        /*
          * Keep the authorities mutable
          */
         if (authorities != null) {

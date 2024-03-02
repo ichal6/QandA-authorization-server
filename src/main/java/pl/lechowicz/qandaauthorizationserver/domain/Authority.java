@@ -18,7 +18,7 @@ public class Authority implements Serializable {
     @GeneratedValue(generator = "authority_id_seq_gen")
     @GenericGenerator(
             name = "authority_id_seq_gen",
-            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+            type = org.hibernate.id.enhanced.SequenceStyleGenerator.class,
             parameters = {
                     @org.hibernate.annotations.Parameter(name = "sequence_name", value = "authority_id_seq"),
                     @org.hibernate.annotations.Parameter(name = "initial_value", value = "1"),

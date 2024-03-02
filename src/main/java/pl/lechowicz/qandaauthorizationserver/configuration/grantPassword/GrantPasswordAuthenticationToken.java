@@ -5,6 +5,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.server.authorization.authentication.OAuth2AuthorizationGrantAuthenticationToken;
 import org.springframework.util.Assert;
 
+import java.io.Serial;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Map;
@@ -14,6 +15,7 @@ import static pl.lechowicz.qandaauthorizationserver.configuration.grantPassword.
 
 public class GrantPasswordAuthenticationToken extends OAuth2AuthorizationGrantAuthenticationToken {
 
+    @Serial
     private static final long serialVersionUID = 1L;
     private final String username;
     private final String password;

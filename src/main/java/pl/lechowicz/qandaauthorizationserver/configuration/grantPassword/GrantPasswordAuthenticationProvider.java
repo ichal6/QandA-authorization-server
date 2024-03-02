@@ -82,7 +82,7 @@ public class GrantPasswordAuthenticationProvider implements AuthenticationProvid
         String username = customPasswordAuthenticationToken.getUsername();
         String password = customPasswordAuthenticationToken.getPassword();
 
-        UserDetails user = null;
+        UserDetails user;
         try {
             user = userDetailsService.loadUserByUsername(username);
         } catch (UsernameNotFoundException e) {

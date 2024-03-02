@@ -36,7 +36,6 @@ spring:
       maximum-pool-size: 10
       initialization-fail-timeout: 1
       leak-detection-threshold: 0
-      auto: none
 
   flyway:
     url: jdbc:postgresql://localhost:5442/demosso
