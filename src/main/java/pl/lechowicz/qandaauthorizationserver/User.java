@@ -2,8 +2,7 @@ package pl.lechowicz.qandaauthorizationserver;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UuidGenerator;
 
@@ -15,6 +14,9 @@ import java.util.UUID;
 
 @Setter
 @Getter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity(name = "User")
 @Table(name = "app_user")
 public class User implements Serializable {
