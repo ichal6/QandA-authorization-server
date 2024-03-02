@@ -1,5 +1,6 @@
 package pl.lechowicz.qandaauthorizationserver.configuration.grantPassword;
 
+import lombok.Getter;
 import org.springframework.lang.Nullable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.server.authorization.authentication.OAuth2AuthorizationGrantAuthenticationToken;
@@ -13,6 +14,7 @@ import java.util.Set;
 
 import static pl.lechowicz.qandaauthorizationserver.configuration.grantPassword.AuthorizationGrantTypePassword.GRANT_PASSWORD;
 
+@Getter
 public class GrantPasswordAuthenticationToken extends OAuth2AuthorizationGrantAuthenticationToken {
 
     @Serial
@@ -37,15 +39,4 @@ public class GrantPasswordAuthenticationToken extends OAuth2AuthorizationGrantAu
                 scopes != null ? new HashSet<>(scopes) : Collections.emptySet());
     }
 
-    public String getUsername() {
-        return this.username;
-    }
-
-    public String getPassword() {
-        return this.password;
-    }
-
-    public Set<String> getScopes() {
-        return this.scopes;
-    }
 }
