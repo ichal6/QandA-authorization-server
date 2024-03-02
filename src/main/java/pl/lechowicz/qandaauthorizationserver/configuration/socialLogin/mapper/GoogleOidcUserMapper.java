@@ -1,4 +1,4 @@
-package pl.lechowicz.qandaauthorizationserver;
+package pl.lechowicz.qandaauthorizationserver.configuration.socialLogin.mapper;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -7,6 +7,8 @@ import org.springframework.security.oauth2.core.oidc.OidcUserInfo;
 import org.springframework.security.oauth2.core.oidc.StandardClaimNames;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Component;
+import pl.lechowicz.qandaauthorizationserver.configuration.socialLogin.CustomOidcUser;
+import pl.lechowicz.qandaauthorizationserver.domain.User;
 
 import java.util.HashMap;
 import java.util.Map;

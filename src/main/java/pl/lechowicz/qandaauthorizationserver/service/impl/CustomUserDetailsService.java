@@ -1,10 +1,13 @@
-package pl.lechowicz.qandaauthorizationserver;
+package pl.lechowicz.qandaauthorizationserver.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import pl.lechowicz.qandaauthorizationserver.configuration.security.CustomUserDetails;
+import pl.lechowicz.qandaauthorizationserver.domain.User;
+import pl.lechowicz.qandaauthorizationserver.service.UserService;
 
 @Service
 @RequiredArgsConstructor

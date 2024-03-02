@@ -1,4 +1,4 @@
-package pl.lechowicz.qandaauthorizationserver;
+package pl.lechowicz.qandaauthorizationserver.configuration.grantPassword;
 
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 

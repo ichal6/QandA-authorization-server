@@ -1,8 +1,9 @@
-package pl.lechowicz.qandaauthorizationserver;
+package pl.lechowicz.qandaauthorizationserver.configuration.security;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import pl.lechowicz.qandaauthorizationserver.domain.User;
 
 import java.util.Collection;
 import java.util.stream.Collectors;

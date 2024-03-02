@@ -1,4 +1,4 @@
-package pl.lechowicz.qandaauthorizationserver;
+package pl.lechowicz.qandaauthorizationserver.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,6 +24,9 @@ import org.springframework.security.oauth2.server.authorization.settings.TokenSe
 import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenGenerator;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
+import pl.lechowicz.qandaauthorizationserver.configuration.grantPassword.AuthorizationGrantTypePassword;
+import pl.lechowicz.qandaauthorizationserver.configuration.grantPassword.GrantPasswordAuthenticationProvider;
+import pl.lechowicz.qandaauthorizationserver.configuration.grantPassword.OAuth2GrantPasswordAuthenticationConverter;
 
 import java.time.Duration;
 import java.util.UUID;

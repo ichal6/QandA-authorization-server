@@ -1,4 +1,4 @@
-package pl.lechowicz.qandaauthorizationserver;
+package pl.lechowicz.qandaauthorizationserver.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.client.oidc.userinfo.OidcUserRequest;
@@ -7,6 +7,9 @@ import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+import pl.lechowicz.qandaauthorizationserver.configuration.socialLogin.mapper.OidcUserMapper;
+import pl.lechowicz.qandaauthorizationserver.domain.User;
+import pl.lechowicz.qandaauthorizationserver.service.UserService;
 
 import java.util.Map;
 

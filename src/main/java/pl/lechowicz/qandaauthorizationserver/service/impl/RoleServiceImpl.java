@@ -1,8 +1,11 @@
-package pl.lechowicz.qandaauthorizationserver;
+package pl.lechowicz.qandaauthorizationserver.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+import pl.lechowicz.qandaauthorizationserver.domain.Role;
+import pl.lechowicz.qandaauthorizationserver.repository.RoleRepository;
+import pl.lechowicz.qandaauthorizationserver.service.RoleService;
 
 
 @Service

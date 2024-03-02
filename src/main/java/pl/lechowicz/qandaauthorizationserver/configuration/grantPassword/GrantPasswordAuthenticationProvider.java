@@ -1,4 +1,4 @@
-package pl.lechowicz.qandaauthorizationserver;
+package pl.lechowicz.qandaauthorizationserver.configuration.grantPassword;
 
 
 import org.apache.commons.logging.Log;
@@ -23,8 +23,9 @@ import org.springframework.security.oauth2.server.authorization.token.DefaultOAu
 import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenContext;
 import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenGenerator;
 import org.springframework.util.Assert;
+import pl.lechowicz.qandaauthorizationserver.configuration.security.CustomUserDetails;
 
-import static pl.lechowicz.qandaauthorizationserver.AuthorizationGrantTypePassword.GRANT_PASSWORD;
+import static pl.lechowicz.qandaauthorizationserver.configuration.grantPassword.AuthorizationGrantTypePassword.GRANT_PASSWORD;
 
 
 import java.security.Principal;

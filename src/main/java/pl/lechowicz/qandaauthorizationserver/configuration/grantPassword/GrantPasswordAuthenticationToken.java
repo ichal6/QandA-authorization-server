@@ -1,4 +1,4 @@
-package pl.lechowicz.qandaauthorizationserver;
+package pl.lechowicz.qandaauthorizationserver.configuration.grantPassword;
 
 import org.springframework.lang.Nullable;
 import org.springframework.security.core.Authentication;
@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import static pl.lechowicz.qandaauthorizationserver.AuthorizationGrantTypePassword.GRANT_PASSWORD;
+import static pl.lechowicz.qandaauthorizationserver.configuration.grantPassword.AuthorizationGrantTypePassword.GRANT_PASSWORD;
 
 public class GrantPasswordAuthenticationToken extends OAuth2AuthorizationGrantAuthenticationToken {
 

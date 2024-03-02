@@ -1,4 +1,4 @@
-package pl.lechowicz.qandaauthorizationserver;
+package pl.lechowicz.qandaauthorizationserver.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;

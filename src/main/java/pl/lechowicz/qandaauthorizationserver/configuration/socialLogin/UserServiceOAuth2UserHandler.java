@@ -1,4 +1,4 @@
-package pl.lechowicz.qandaauthorizationserver;
+package pl.lechowicz.qandaauthorizationserver.configuration.socialLogin;
 
 import com.nimbusds.oauth2.sdk.util.CollectionUtils;
 import lombok.RequiredArgsConstructor;
@@ -6,6 +6,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Component;
+import pl.lechowicz.qandaauthorizationserver.domain.Role;
+import pl.lechowicz.qandaauthorizationserver.domain.User;
+import pl.lechowicz.qandaauthorizationserver.service.RoleService;
+import pl.lechowicz.qandaauthorizationserver.service.UserService;
 
 import java.util.Collection;
 import java.util.Set;

@@ -1,7 +1,8 @@
-package pl.lechowicz.qandaauthorizationserver;
+package pl.lechowicz.qandaauthorizationserver.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import pl.lechowicz.qandaauthorizationserver.domain.Role;
 
 import java.util.Optional;
 

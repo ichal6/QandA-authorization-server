@@ -1,4 +1,4 @@
-package pl.lechowicz.qandaauthorizationserver;
+package pl.lechowicz.qandaauthorizationserver.configuration.grantPassword;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.lang.Nullable;
@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static pl.lechowicz.qandaauthorizationserver.AuthorizationGrantTypePassword.GRANT_PASSWORD;
+import static pl.lechowicz.qandaauthorizationserver.configuration.grantPassword.AuthorizationGrantTypePassword.GRANT_PASSWORD;
 
 public class OAuth2GrantPasswordAuthenticationConverter implements AuthenticationConverter {
 
